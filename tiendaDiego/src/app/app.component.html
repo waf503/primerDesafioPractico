@@ -1,0 +1,38 @@
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-secondary">
+  <a class="navbar-brand" href="#">
+    <img src="https://cdn3.iconfinder.com/data/icons/purchases-and-sales/512/STORE.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    <span class="titulo">Tienda Diego</span>
+  </a>
+</nav>
+
+<div class="container">
+  
+ 
+
+      <h3>Lista de productos</h3>
+      <table class="table" border="1px" >
+        <thead>
+          <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Precio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let tproducto of productos">
+            <td>{{tproducto.id}}</td>
+            <td>{{tproducto.nombre}}</td>
+            <td>{{tproducto.nombre}}</td>
+            <td>$ {{tproducto.precio}}</td>
+          </tr>
+        </tbody>
+
+      </table>
+    
+  <br>
+<app-compra></app-compra>
+
+</div>

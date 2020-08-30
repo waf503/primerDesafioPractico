@@ -1,0 +1,66 @@
+<div class="container">
+    <h2>Formulario comprar producto</h2>     
+
+        
+        <div class="form-group">
+          <label for="nombre">Nombre: </label>
+          <input onkeypress="return event.charCode >= 65" #name="ngModel" type="text" class="form-control" id="nombre"  placeholder="Ingrese su nombre completo..." [(ngModel)]="nombre">
+        </div>
+
+        <div class="form-group">
+          <label for="dui">Dui: </label>
+          <input  type="numbre" class="form-control" id="dui"  placeholder="0000000-0" required [(ngModel)]="dui" pattern="[0-9]{8}-[0-9]{1}" #DUI="ngModel">
+          <small>Escriba su dui con el guion</small>
+          <div [hidden]="DUI.valid || DUI.pristine" class="text-danger">
+            El dui debe de tener el siguiente formato 0000000-0
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="idProducto">Codigo producto: </label>
+          <select class="form-control" id="idProducto" name="idProducto" required [(ngModel)]="idProducto">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+         </select>
+        
+        </div>      
+
+        <div *ngIf="DUI.valid && name.valid">
+            <button (click)="ingresar()" type="submit" class="btn btn-primary">Comprar</button>
+        </div>
+    
+</div>
+
+
+<!--Tabla Compras-->
+<br>
+<div class="container">
+    <table class="table">
+      <thead>
+          <tr>
+              <th>Cliente</th>
+              <th>Dui</th>
+              <th>Producto</th>
+              <th>Visita</th>
+              <th>Precio</th>
+              <th>Descuento</th>
+              <th>Precio Final</th>
+          </tr>
+      </thead> 
+      <tbody>
+          <tr *ngFor="let tcliente of registro">
+              <td>{{tcliente.nombre}}</td>
+              <td>{{tcliente.dui}}</td>
+              <td>{{tcliente.idProducto}}</td>
+              <td>{{tcliente.visita}}</td>
+              <td>{{tcliente.precio}}</td>
+              <td>{{tcliente.descuento}}</td>
+              <td>{{tcliente.precioFinal}}</td>
+          </tr>
+      </tbody>
+      
+      
+    </table>
+  </div>
