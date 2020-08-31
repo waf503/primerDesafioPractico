@@ -54,7 +54,7 @@ export class CompraComponent implements OnInit {
       }
     }
 
-    
+    this.descuento = 0;
     if(this.visita>=2 && this.visita<=4){
       this.descuento = this.precio*0.05;
     }else if(this.visita > 4){
